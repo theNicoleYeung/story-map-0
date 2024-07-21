@@ -1,76 +1,3 @@
-//SECTION 1
-window.addEventListener('load', () => {
-    const audio1 = document.getElementById('audio1');
-    const audio2 = document.getElementById('audio2');
-    const audio3 = document.getElementById('audio3');
-
-    // Initial volume settings
-    audio1.volume = 1; // River Full volume
-    audio2.volume = 0.6; // Heartbeat 60% volume
-    audio3.volume = 1.0;
-
-    // Set playback speed for audio2
-    audio2.playbackRate = 0.75; // Play at 80% of the normal speed
-
-    const playAudio = (audio) => {
-        audio.play().catch(error => {
-            console.log('Autoplay failed:', error);
-        });
-    };
-
-    // Play both audios initially
-    playAudio(audio1);
-    playAudio(audio2);
-
-    document.body.addEventListener('click', () => {
-        playAudio(audio1);
-        playAudio(audio2);
-    }, { once: true });
-
-    const section1 = document.getElementById('section1'); // Replace with actual ID
-    if (section1) {
-        window.addEventListener('scroll', () => {
-            const section1Top = section1.getBoundingClientRect().top;
-            const section1Height = section1.clientHeight;
-            const scrollPosition = window.scrollY || window.pageYOffset;
-            const scrollThreshold = section1Top + 0.5 * section1Height; // 50% of section1
-
-            if (scrollPosition >= scrollThreshold) {
-                fadeOutAudio(audio1);
-                fadeOutAudio(audio2);
-                section1.classList.add('fade-out'); // Add fade-out class to section1
-                playAudio(audio3);
-            } else {
-                fadeInAudio(audio1);
-                fadeInAudio(audio2);
-                section1.classList.remove('fade-out'); // Remove fade-out class from section1
-            }
-        });
-    } else {
-        console.error('Element with ID "section1" not found.');
-    }
-
-    function fadeOutAudio(audio) {
-        let fadeOutInterval = setInterval(() => {
-            // Decrease the volume gradually
-            audio.volume -= 0.01;   //-0.01 for 500ms (0.5 sec) fades well!
-            if (audio.volume <= 0) {
-                audio.pause();
-                clearInterval(fadeOutInterval);
-            }
-        }, 500); // Adjust the interval duration as needed; 1000 ms = 1 sec
-    }
-
-    function fadeInAudio(audio) {
-        // Reset volume and play audio
-        audio.volume = 1.0; // Reset to full volume
-        if (audio.paused) {
-            playAudio();
-        }
-    }
-});
-
-
 //for TRANSITION
 document.addEventListener('DOMContentLoaded', function() {   
     const sections = document.querySelectorAll('.scroll-section');
@@ -98,11 +25,6 @@ function toggleArrow() {
     // arrow.style.display = 'block'; // Show the arrow
     arrow.classList.add('show'); // Add 'show' class to fade in the arrow
 }
-
-////////////////// CLICK TO TEST SOUND!
-// document.querySelector('.loading-wave').addEventListener('click', function() {
-//     window.open('https://devicetests.com/sound-test', '_blank');
-// });
 
 
 /////////////// CLICK SVG - NEED TO FIX!!!!!////////
@@ -176,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const button = document.getElementById('next-svg-button');
     const img = document.getElementById('img');
     const labels = document.querySelectorAll('.label');
-    const audio3 = document.getElementById('audio3');
 
     let clickCount = 0;
 
@@ -198,21 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
             img.classList.add('rotate'); 
             button.classList.add('greyed-out');
             button.classList.remove('hover');
-            // Stop and fade out audio3
-            fadeOutAudio(audio3);
         }
     });
-
-    function fadeOutAudio(audio) {
-        let fadeOutInterval = setInterval(() => {
-            if (audio.volume > 0) {
-                audio.volume -= 0.01;
-            } else {
-                audio.pause();
-                clearInterval(fadeOutInterval);
-            }
-        }, 50); // Adjust interval duration as needed
-    }
 });
 
 
@@ -231,26 +139,7 @@ function isInViewport(element) {
 }
 
 
-// // LAYER SOUND 4 - DOESN"T WORK YET
-// function Sound4() {
-//     const risk = document.getElementById('text-container-2');
-//     const audio4 = document.getElementById('audio4');
-
-//     if (isInViewport(risk)) {
-//         audio4.play();
-//         audio4.volume = 1;
-//     }
-// }
-
-// // Add scroll event listener
-// window.addEventListener('scroll', Sound4);
-
-
-
-
 /////////////////////TRIGGER SECTION AUDIO WORKS!
-// // Select the audio element
-// const audio5 = document.getElementById('audio5');
 
 // Options for the intersection observer
 const options = {
