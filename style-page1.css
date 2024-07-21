@@ -167,7 +167,7 @@ body {
 }
 
 .scroll-arrow img {
-    width: 40px; /* Adjust arrow image width */
+    width: 35px; /* Adjust arrow image width */
     height: auto; /* Maintain aspect ratio */
     display: block;
     transition: transform 3s ease-out; /* Smooth animation */
