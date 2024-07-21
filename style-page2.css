@@ -1,10 +1,19 @@
 body {
-    margin:0;
+    margin: 0;
     background-color: #000000;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     transition: opacity 1s ease-in-out;
+}
+
+@media (max-width: 1500px) {
+    body {
+        /* width: 100%; Full width of the viewport */
+        /* max-width: 1300px; Constrain the maximum width */
+        min-width: 1000px;
+        margin: 0 auto; /* Center align */
+    }
 }
 
 header {
@@ -100,11 +109,12 @@ font-style:italic;
     top:0;
     left:0;
     right:0;
-    width: 1520px;
+    width: 1500px;
     height: 100%;
     transition: opacity 2s ease-out, transform 2s ease-out;
     display:flex;
     flex-direction:column;
+    position:relative;
 }
 
 .map-container{
