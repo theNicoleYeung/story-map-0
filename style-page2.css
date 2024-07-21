@@ -1,20 +1,13 @@
 body {
-    margin: 0;
+    margin: 0 auto;
     background-color: #000000;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     transition: opacity 1s ease-in-out;
+    min-width:1300px;
 }
 
-@media (max-width: 1500px) {
-    body {
-        /* width: 100%; Full width of the viewport */
-        /* max-width: 1300px; Constrain the maximum width */
-        min-width: 1000px;
-        margin: 0 auto; /* Center align */
-    }
-}
 
 header {
     display: inline-block;
@@ -105,27 +98,35 @@ font-style:italic;
 }
 
 #section1 {
-    margin-top:0;
+    margin:0 auto;
     top:0;
     left:0;
     right:0;
-    width: 1500px;
-    height: 100%;
+    width: 100vw;
+    height: 2000px;
+    min-height:200%;
+    min-width:1300px;
     transition: opacity 2s ease-out, transform 2s ease-out;
+    background-image: url('maps/Layout_18x24_Amazon_20240717_resized.jpeg');
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
     display:flex;
     flex-direction:column;
     position:relative;
 }
 
-.map-container{
-    width:100%;
-    height:2000px;
-    background-image: url('maps/Layout_18x24_Amazon_20240717_resized.jpeg');
-    background-size: cover;
-    display:flex;
-    flex-direction:column;
-    position:relative;
-}
+
+/* .map-container{
+    width:100vw;
+    height:100vh;
+    background-size: contain;
+    background-repeat:no-repeat;
+    /* display:flex; */
+    /* flex-direction:column;
+    position:absolute;
+    margin:0 auto;
+} */
 
 .title-container {
     position:relative;
@@ -147,97 +148,6 @@ font-style:italic;
     0 0 25px rgba(0, 0, 0, 0.8);
 }
 
-
-.sound-container {
-    position: absolute;
-    top:30%;
-    left:50%;
-    transition: opacity 3s ease-in-out 3s; /* Transition with delay */
-}
-
-.sound-container img {
-    width: 40px; /* Adjust arrow image width */
-    height: auto; /* Maintain aspect ratio */
-    transition: transform 3s ease-out; /* Smooth animation */
-    filter:invert(1);
-    border:none;
-    opacity:80%;
-}
-
- .sound-button {
-    width: 50px; 
-    height: 50px;
-    background-color:rgba(0, 0, 0, 0.266);   
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 1; 
-    border:none;
-    animation: pulse 1.5s infinite; /* Apply the glow animation */
-}
-
-.sound-button::before {
-    content: '';
-    position: absolute;
-    width: calc(100% + 10px); /* Adjust size to create a halo effect */
-    height: calc(100% + 10px); /* Adjust size to create a halo effect */
-    border-radius: 50%; /* Makes it circular */
-    animation: halo 1.5s infinite; /* Apply the halo animation */
-    z-index: -1; /* Behind the .loading-wave */
-}
-
-@keyframes pulse {
-    /* 0% {
-    transform: scale(1);
-    opacity: 1;
-    } */
-    50% {
-    transform: scale(1.1);
-    opacity: 0.8;
-    }
-    100% {
-    transform: scale(1);
-    opacity: 1;
-    }
-}
-
-@keyframes halo {
-    /* 0% {
-        box-shadow: 0 0 50px rgba(255, 255, 255, 0.6);
-    } */
-    /* 25% {
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-    } */
-    50% {
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    }
-    /* 75% {
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-    } */
-    100% {
-        box-shadow: 0 0 100px rgba(255, 255, 255, 0.3);
-    }
-}
-
-
-.tooltip-text {
-    visibility: hidden;
-    width: 300px;
-    /* background-color: rgba(255, 255, 255, 0.801); */
-    color: #ffffff;
-    text-align: center;
-    border-radius: 0px;
-    position: absolute;
-    z-index: 1;
-    left: 100%; /*Position the tooltip to the right of the text */
-    margin-top: 5px; /* Adjust vertical spacing */
-    margin-left: 5px; /* Adjust horizontal spacing */
-    opacity: 0;
-    pointer-events: none;
-    /* transition: opacity 0.3s; */
-}
 
 .text-container-intro {
     display:flex;
