@@ -32,10 +32,18 @@ function isInViewport(element) {
 }
 
 
-
 //(3) FOR BUTTON PANEL
-function handleButtonClick(buttonId, backgroundImage) {
-    
+function handleButtonClick(buttonId, audioId, backgroundImage) {
+    // const audios = document.querySelectorAll('audio');
+    // audios.forEach(audio => {
+    //     if (audio.id === audioId) {
+    //         audio.play();
+    //     } else {
+    //         audio.pause();
+    //         audio.currentTime = 0;
+    //     }
+    // });
+
     const rightColumn = document.getElementById('right-column-container');
     rightColumn.style.backgroundImage = `url(${backgroundImage})`;
 
